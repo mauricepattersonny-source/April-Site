@@ -1,3 +1,4 @@
+import { useState, MouseEvent } from "react";
 import { motion } from "motion/react";
 import { 
   ShoppingBag, 
@@ -28,6 +29,19 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export default function App() {
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  const handleBookCall = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setShowCalendar(true);
+    setTimeout(() => {
+        const bookSection = document.getElementById("book");
+        if (bookSection) {
+            bookSection.scrollIntoView({ behavior: "smooth" });
+        }
+    }, 100);
+  };
+
   const services = [
     {
       title: "Listing & Catalog Management",
@@ -125,8 +139,9 @@ export default function App() {
               <WhatsAppIcon className="w-5 h-5" />
             </a>
             <a 
-              href="#book" 
-              className="bg-brand px-6 py-2.5 rounded-full text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-brand/20"
+              href="#book"
+              onClick={handleBookCall}
+              className="bg-brand px-6 py-2.5 rounded-full text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-brand/20 cursor-pointer"
             >
               Book a Call
             </a>
@@ -179,8 +194,9 @@ export default function App() {
 
             <div className="flex flex-wrap gap-4">
               <a 
-                href="#book" 
-                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-brand/20"
+                href="#book"
+                onClick={handleBookCall}
+                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-brand/20 cursor-pointer"
               >
                 <Calendar className="w-5 h-5" />
                 Book a Call
@@ -352,6 +368,48 @@ export default function App() {
         </div>
       </section>
 
+      {/* Data-Driven Solutions Section */}
+      <section className="py-24 px-6 bg-bg relative border-t border-white/5">
+         <div className="max-w-7xl mx-auto">
+             <div className="text-center mb-20">
+                 <h2 className="text-4xl md:text-6xl font-bold mb-4">Data-Driven Solutions & <br /> <span className="text-brand">Performance Dashboards</span></h2>
+                 <p className="text-white/50 font-mono uppercase tracking-[0.3em] text-sm">Actionable insights for your business</p>
+             </div>
+             
+             <div className="grid lg:grid-cols-2 gap-12">
+                 {/* Card 1 */}
+                 <div className="glass p-8 rounded-3xl border border-white/10 hover:border-brand/30 transition-all duration-300">
+                     <h3 className="text-2xl font-bold mb-4 border-l-4 border-brand pl-4">SKU-Level Profit & Loss Dashboard</h3>
+                     <p className="text-white/70 mb-4"><strong>The Challenge:</strong> Fragmented raw data exports make real-time profitability visibility difficult.</p>
+                     <p className="text-white/70 mb-6"><strong>The Solution:</strong> A custom tool aggregating referral fees, PPC spend, and COGS for exact net margin calculation.</p>
+                     <div className="flex flex-wrap gap-2 mb-8">
+                         {["Dynamic Pivot Tables", "Automated Fee Logic", "PPC Performance Tracking"].map((tag, i) => (
+                             <span key={i} className="px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-bold border border-brand/20">{tag}</span>
+                         ))}
+                     </div>
+                     <div className="w-full aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 relative">
+                         <iframe src="https://docs.google.com/spreadsheets/d/1GKYJN9BCWT9N6D5B4SeZKGAHoS8UQ-Ml-O_cJkl1wvM/preview" className="absolute top-0 left-0 w-full h-full border-0"></iframe>
+                     </div>
+                 </div>
+
+                 {/* Card 2 */}
+                 <div className="glass p-8 rounded-3xl border border-white/10 hover:border-brand/30 transition-all duration-300">
+                     <h3 className="text-2xl font-bold mb-4 border-l-4 border-brand pl-4">Inventory & Operations Store Log</h3>
+                     <p className="text-white/70 mb-4"><strong>The Challenge:</strong> Missed reimbursement opportunities and stock-outs due to decentralized tracking.</p>
+                     <p className="text-white/70 mb-6"><strong>The Solution:</strong> A centralized "single source of truth" log to track inventory health and shipment statuses.</p>
+                     <div className="flex flex-wrap gap-2 mb-8">
+                         {["Inventory Triggers", "Reimbursement Tracker", "Shipment Status Monitoring"].map((tag, i) => (
+                             <span key={i} className="px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-bold border border-brand/20">{tag}</span>
+                         ))}
+                     </div>
+                     <div className="w-full aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 relative">
+                         <iframe src="https://docs.google.com/spreadsheets/d/1w7j7gwcaUz01m6Bp66kZO7Gduturo1xUgQqdqRiazxo/preview" className="absolute top-0 left-0 w-full h-full border-0"></iframe>
+                     </div>
+                 </div>
+             </div>
+         </div>
+      </section>
+
       {/* CTA Section */}
       <section id="book" className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -376,17 +434,24 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-[1000px] mx-auto rounded-3xl overflow-hidden glass p-2 md:p-4 shadow-2xl shadow-brand/5">
-          <div className="w-full bg-white/5 rounded-2xl overflow-hidden">
-            <iframe 
-              src="https://api.leadconnectorhq.com/widget/booking/74zJgbmt9scfX8XV3mon" 
-              style={{ width: '100%', height: '800px', border: 'none' }} 
-              scrolling="no" 
-              id="NCzGV0yRvY0b4BmUTHtY_1771866330927"
-              title="Booking Calendar"
-            />
-          </div>
-        </div>
+        {showCalendar && (
+            <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                transition={{ duration: 0.5 }}
+                className="max-w-[1000px] mx-auto rounded-3xl overflow-hidden glass p-2 md:p-4 shadow-2xl shadow-brand/5"
+            >
+            <div className="w-full bg-white/5 rounded-2xl overflow-hidden">
+                <iframe 
+                src="https://api.leadconnectorhq.com/widget/booking/74zJgbmt9scfX8XV3mon" 
+                style={{ width: '100%', height: '800px', border: 'none' }} 
+                scrolling="no" 
+                id="NCzGV0yRvY0b4BmUTHtY_1771866330927"
+                title="Booking Calendar"
+                />
+            </div>
+            </motion.div>
+        )}
       </section>
 
       {/* Footer */}
