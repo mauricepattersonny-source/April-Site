@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { 
   ShoppingBag, 
@@ -28,6 +29,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export default function App() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const services = [
     {
       title: "Listing & Catalog Management",
@@ -120,16 +122,20 @@ export default function App() {
               href="https://wa.me/your-number" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 hover:text-brand transition-colors"
+              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2.5 rounded-full text-white font-bold text-sm hover:bg-white/10 transition-all active:scale-95"
             >
-              <WhatsAppIcon className="w-5 h-5" />
+              <WhatsAppIcon className="w-4 h-4" />
+              Chat on WhatsApp
             </a>
-            <a 
-              href="#book" 
-              className="bg-brand px-6 py-2.5 rounded-full text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-brand/20"
+            <button 
+              onClick={() => {
+                setIsBookingOpen(true);
+                document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-brand px-6 py-2.5 rounded-full text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-brand/20 cursor-pointer"
             >
               Book a Call
-            </a>
+            </button>
           </div>
         </div>
       </nav>
@@ -178,13 +184,16 @@ export default function App() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a 
-                href="#book" 
-                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-brand/20"
+              <button 
+                onClick={() => {
+                  setIsBookingOpen(true);
+                  document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-brand/20 cursor-pointer"
               >
                 <Calendar className="w-5 h-5" />
                 Book a Call
-              </a>
+              </button>
               <a 
                 href="https://wa.me/your-number" 
                 target="_blank" 
@@ -415,17 +424,24 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-[1000px] mx-auto rounded-3xl overflow-hidden glass p-2 md:p-4 shadow-2xl shadow-brand/5">
-          <div className="w-full bg-white/5 rounded-2xl overflow-hidden">
-            <iframe 
-              src="https://api.leadconnectorhq.com/widget/booking/74zJgbmt9scfX8XV3mon" 
-              style={{ width: '100%', height: '800px', border: 'none' }} 
-              scrolling="no" 
-              id="NCzGV0yRvY0b4BmUTHtY_1771866330927"
-              title="Booking Calendar"
-            />
-          </div>
-        </div>
+        {isBookingOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-[1000px] mx-auto rounded-3xl overflow-hidden glass p-2 md:p-4 shadow-2xl shadow-brand/5"
+          >
+            <div className="w-full bg-white/5 rounded-2xl overflow-hidden">
+              <iframe 
+                src="https://api.leadconnectorhq.com/widget/booking/74zJgbmt9scfX8XV3mon" 
+                style={{ width: '100%', height: '800px', border: 'none' }} 
+                scrolling="no" 
+                id="NCzGV0yRvY0b4BmUTHtY_1771866330927"
+                title="Booking Calendar"
+              />
+            </div>
+          </motion.div>
+        )}
       </section>
 
       {/* Footer */}
@@ -439,9 +455,8 @@ export default function App() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 text-sm text-white/50">
-            <a href="mailto:hello@aprilturla.com" className="flex items-center gap-2 hover:text-brand transition-colors">
-              <Mail className="w-4 h-4" />
-              hello@aprilturla.com
+            <a href="mailto:hello@aprilturla.com" className="flex items-center hover:text-brand transition-colors p-1" aria-label="Email Me">
+              <Mail className="w-5 h-5" />
             </a>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
