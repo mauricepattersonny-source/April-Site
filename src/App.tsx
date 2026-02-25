@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { 
   ShoppingBag, 
@@ -28,6 +29,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export default function App() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const services = [
     {
       title: "Listing & Catalog Management",
@@ -120,16 +122,20 @@ export default function App() {
               href="https://wa.me/your-number" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 hover:text-brand transition-colors"
+              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2.5 rounded-full text-white font-bold text-sm hover:bg-white/10 transition-all active:scale-95"
             >
-              <WhatsAppIcon className="w-5 h-5" />
+              <WhatsAppIcon className="w-4 h-4" />
+              Chat on WhatsApp
             </a>
-            <a 
-              href="#book" 
-              className="bg-brand px-6 py-2.5 rounded-full text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-brand/20"
+            <button 
+              onClick={() => {
+                setIsBookingOpen(true);
+                document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-brand px-6 py-2.5 rounded-full text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-brand/20 cursor-pointer"
             >
               Book a Call
-            </a>
+            </button>
           </div>
         </div>
       </nav>
@@ -178,13 +184,16 @@ export default function App() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a 
-                href="#book" 
-                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-brand/20"
+              <button 
+                onClick={() => {
+                  setIsBookingOpen(true);
+                  document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-brand/20 cursor-pointer"
               >
                 <Calendar className="w-5 h-5" />
                 Book a Call
-              </a>
+              </button>
               <a 
                 href="https://wa.me/your-number" 
                 target="_blank" 
@@ -352,6 +361,45 @@ export default function App() {
         </div>
       </section>
 
+      {/* Portfolio Section */}
+      <div className="portfolio-section">
+        
+        <h2 style={{textAlign: 'center', marginBottom: '40px', color: '#2c3e50'}}>Expert Data & Reporting Samples</h2>
+
+        <div className="case-study-card">
+          <h3 className="case-study-title">1. SKU-Level Profit & Loss Dashboard</h3>
+          <p><strong>The Challenge:</strong> The client struggled to see real-time profitability because Amazon’s raw data exports are fragmented across multiple reports.</p>
+          <p><strong>The Solution:</strong> I built this custom <strong>SKU-Level P&L Reporting</strong> tool that automatically aggregates referral fees, PPC spend, and COGS. This provides an exact net margin calculation at a glance, enabling data-driven inventory decisions.</p>
+          
+          <div className="feature-list">
+            <span className="feature-tag">Dynamic Pivot Tables</span>
+            <span className="feature-tag">Automated Fee Logic</span>
+            <span className="feature-tag">PPC Performance Tracking</span>
+          </div>
+
+          <div className="spreadsheet-wrapper">
+            <iframe src="https://docs.google.com/spreadsheets/d/1GKYJN9BCWT9N6D5B4SeZKGAHoS8UQ-Ml-O_cJkl1wvM/preview"></iframe>
+          </div>
+        </div>
+
+        <div className="case-study-card">
+          <h3 className="case-study-title">2. Inventory & Operations Store Log</h3>
+          <p><strong>The Challenge:</strong> Managing daily store operations across multiple regions often led to missed reimbursement opportunities and frequent stock-outs.</p>
+          <p><strong>The Solution:</strong> I developed a centralized <strong>Amazon Store Log</strong> to track inventory health and shipment statuses. It serves as a "single source of truth" that helps the operations team stay ahead of supply chain delays.</p>
+          
+          <div className="feature-list">
+            <span className="feature-tag">Inventory Triggers</span>
+            <span className="feature-tag">Reimbursement Tracker</span>
+            <span className="feature-tag">Shipment Status Monitoring</span>
+          </div>
+
+          <div className="spreadsheet-wrapper">
+            <iframe src="https://docs.google.com/spreadsheets/d/1w7j7gwcaUz01m6Bp66kZO7Gduturo1xUgQqdqRiazxo/preview"></iframe>
+          </div>
+        </div>
+
+      </div>
+
       {/* CTA Section */}
       <section id="book" className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -376,17 +424,24 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-[1000px] mx-auto rounded-3xl overflow-hidden glass p-2 md:p-4 shadow-2xl shadow-brand/5">
-          <div className="w-full bg-white/5 rounded-2xl overflow-hidden">
-            <iframe 
-              src="https://api.leadconnectorhq.com/widget/booking/74zJgbmt9scfX8XV3mon" 
-              style={{ width: '100%', height: '800px', border: 'none' }} 
-              scrolling="no" 
-              id="NCzGV0yRvY0b4BmUTHtY_1771866330927"
-              title="Booking Calendar"
-            />
-          </div>
-        </div>
+        {isBookingOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-[1000px] mx-auto rounded-3xl overflow-hidden glass p-2 md:p-4 shadow-2xl shadow-brand/5"
+          >
+            <div className="w-full bg-white/5 rounded-2xl overflow-hidden">
+              <iframe 
+                src="https://api.leadconnectorhq.com/widget/booking/74zJgbmt9scfX8XV3mon" 
+                style={{ width: '100%', height: '800px', border: 'none' }} 
+                scrolling="no" 
+                id="NCzGV0yRvY0b4BmUTHtY_1771866330927"
+                title="Booking Calendar"
+              />
+            </div>
+          </motion.div>
+        )}
       </section>
 
       {/* Footer */}
@@ -400,9 +455,8 @@ export default function App() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 text-sm text-white/50">
-            <a href="mailto:hello@aprilturla.com" className="flex items-center gap-2 hover:text-brand transition-colors">
-              <Mail className="w-4 h-4" />
-              hello@aprilturla.com
+            <a href="mailto:hello@aprilturla.com" className="flex items-center hover:text-brand transition-colors p-1" aria-label="Email Me">
+              <Mail className="w-5 h-5" />
             </a>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
