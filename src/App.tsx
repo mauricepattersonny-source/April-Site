@@ -352,6 +352,45 @@ export default function App() {
         </div>
       </section>
 
+      {/* Portfolio Section */}
+      <div className="portfolio-section">
+        
+        <h2 style={{textAlign: 'center', marginBottom: '40px', color: '#2c3e50'}}>Expert Data & Reporting Samples</h2>
+
+        <div className="case-study-card">
+          <h3 className="case-study-title">1. SKU-Level Profit & Loss Dashboard</h3>
+          <p><strong>The Challenge:</strong> The client struggled to see real-time profitability because Amazon’s raw data exports are fragmented across multiple reports.</p>
+          <p><strong>The Solution:</strong> I built this custom <strong>SKU-Level P&L Reporting</strong> tool that automatically aggregates referral fees, PPC spend, and COGS. This provides an exact net margin calculation at a glance, enabling data-driven inventory decisions.</p>
+          
+          <div className="feature-list">
+            <span className="feature-tag">Dynamic Pivot Tables</span>
+            <span className="feature-tag">Automated Fee Logic</span>
+            <span className="feature-tag">PPC Performance Tracking</span>
+          </div>
+
+          <div className="spreadsheet-wrapper">
+            <iframe src="https://docs.google.com/spreadsheets/d/1GKYJN9BCWT9N6D5B4SeZKGAHoS8UQ-Ml-O_cJkl1wvM/preview"></iframe>
+          </div>
+        </div>
+
+        <div className="case-study-card">
+          <h3 className="case-study-title">2. Inventory & Operations Store Log</h3>
+          <p><strong>The Challenge:</strong> Managing daily store operations across multiple regions often led to missed reimbursement opportunities and frequent stock-outs.</p>
+          <p><strong>The Solution:</strong> I developed a centralized <strong>Amazon Store Log</strong> to track inventory health and shipment statuses. It serves as a "single source of truth" that helps the operations team stay ahead of supply chain delays.</p>
+          
+          <div className="feature-list">
+            <span className="feature-tag">Inventory Triggers</span>
+            <span className="feature-tag">Reimbursement Tracker</span>
+            <span className="feature-tag">Shipment Status Monitoring</span>
+          </div>
+
+          <div className="spreadsheet-wrapper">
+            <iframe src="https://docs.google.com/spreadsheets/d/1w7j7gwcaUz01m6Bp66kZO7Gduturo1xUgQqdqRiazxo/preview"></iframe>
+          </div>
+        </div>
+
+      </div>
+
       {/* CTA Section */}
       <section id="book" className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto text-center mb-16">
