@@ -117,12 +117,13 @@ export default function App() {
             <a href="#services" className="hover:text-brand transition-colors">Services</a>
             <a href="#why-me" className="hover:text-brand transition-colors">Why Me</a>
             <a 
-              href="https://wa.me/your-number" 
+              href="https://wa.me/639671747127?text=" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 hover:text-brand transition-colors"
+              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2.5 rounded-full text-white font-semibold hover:bg-white/10 transition-all active:scale-95"
             >
-              <WhatsAppIcon className="w-5 h-5" />
+              <WhatsAppIcon className="w-4 h-4" />
+              Message On WhatsApp
             </a>
             <a 
               href="#book" 
@@ -186,7 +187,7 @@ export default function App() {
                 Book a Call
               </a>
               <a 
-                href="https://wa.me/your-number" 
+                href="https://wa.me/639671747127?text=" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-8 py-4 rounded-full text-white font-bold text-lg hover:bg-white/10 transition-all active:scale-95"
@@ -365,7 +366,7 @@ export default function App() {
           
           <div className="flex flex-wrap justify-center gap-6 mb-16">
             <a 
-              href="https://wa.me/your-number" 
+              href="https://wa.me/639671747127?text=" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-10 py-5 rounded-full text-white font-bold text-lg hover:bg-white/10 transition-all active:scale-95"
@@ -408,7 +409,7 @@ export default function App() {
               <MapPin className="w-4 h-4" />
               Philippines
             </div>
-            <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors">
+            <a href="https://wa.me/639671747127?text=" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors">
               <WhatsAppIcon className="w-4 h-4" />
               WhatsApp
             </a>
