@@ -8,7 +8,6 @@ import {
   Calendar,
   ExternalLink,
   CheckCircle2,
-  Mail,
   MapPin,
   Phone,
   Store
@@ -400,10 +399,6 @@ export default function App() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 text-sm text-white/50">
-            <a href="mailto:hello@aprilturla.com" className="flex items-center gap-2 hover:text-brand transition-colors">
-              <Mail className="w-4 h-4" />
-              hello@aprilturla.com
-            </a>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
               Philippines
