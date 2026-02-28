@@ -5,12 +5,8 @@ import {
   MessageSquare, 
   ShieldCheck, 
   ClipboardList, 
-  Calendar,
-  ExternalLink,
   CheckCircle2,
-  Mail,
   MapPin,
-  Phone,
   Store
 } from "lucide-react";
 
@@ -117,18 +113,12 @@ export default function App() {
             <a href="#services" className="hover:text-brand transition-colors">Services</a>
             <a href="#why-me" className="hover:text-brand transition-colors">Why Me</a>
             <a 
-              href="https://wa.me/your-number" 
+              href="https://wa.me/639671747127" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 hover:text-brand transition-colors"
+              className="px-4 py-2 bg-brand text-white rounded-full hover:bg-brand/90 transition-colors"
             >
-              <WhatsAppIcon className="w-5 h-5" />
-            </a>
-            <a 
-              href="#book" 
-              className="bg-brand px-6 py-2.5 rounded-full text-white font-semibold hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-brand/20"
-            >
-              Book a Call
+              Chat with me on WhatsApp
             </a>
           </div>
         </div>
@@ -179,17 +169,10 @@ export default function App() {
 
             <div className="flex flex-wrap gap-4">
               <a 
-                href="#book" 
-                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-brand/20"
-              >
-                <Calendar className="w-5 h-5" />
-                Book a Call
-              </a>
-              <a 
-                href="https://wa.me/your-number" 
+                href="https://wa.me/639671747127" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-8 py-4 rounded-full text-white font-bold text-lg hover:bg-white/10 transition-all active:scale-95"
+                className="inline-flex items-center gap-2 bg-brand px-8 py-4 rounded-full text-white font-bold text-lg hover:bg-brand/90 transition-all active:scale-95"
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 Chat on WhatsApp
@@ -360,31 +343,19 @@ export default function App() {
             <span className="text-brand">Ecommerce Operations</span>
           </h2>
           <p className="text-xl text-white/60 mb-12">
-            Ready to scale your business? Book a discovery call or message me directly on WhatsApp to discuss how I can support your growth.
+            Ready to scale your business? Message me directly on WhatsApp to discuss how I can support your growth.
           </p>
           
           <div className="flex flex-wrap justify-center gap-6 mb-16">
             <a 
-              href="https://wa.me/your-number" 
+              href="https://wa.me/639671747127" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-10 py-5 rounded-full text-white font-bold text-lg hover:bg-white/10 transition-all active:scale-95"
+              className="inline-flex items-center gap-2 bg-brand px-10 py-5 rounded-full text-white font-bold text-lg hover:bg-brand/90 transition-all active:scale-95"
             >
               <WhatsAppIcon className="w-6 h-6" />
               Message on WhatsApp
             </a>
-          </div>
-        </div>
-
-        <div className="max-w-[1000px] mx-auto rounded-3xl overflow-hidden glass p-2 md:p-4 shadow-2xl shadow-brand/5">
-          <div className="w-full bg-white/5 rounded-2xl overflow-hidden">
-            <iframe 
-              src="https://api.leadconnectorhq.com/widget/booking/74zJgbmt9scfX8XV3mon" 
-              style={{ width: '100%', height: '800px', border: 'none' }} 
-              scrolling="no" 
-              id="NCzGV0yRvY0b4BmUTHtY_1771866330927"
-              title="Booking Calendar"
-            />
           </div>
         </div>
       </section>
@@ -400,15 +371,11 @@ export default function App() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8 text-sm text-white/50">
-            <a href="mailto:hello@aprilturla.com" className="flex items-center gap-2 hover:text-brand transition-colors">
-              <Mail className="w-4 h-4" />
-              hello@aprilturla.com
-            </a>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
               Philippines
             </div>
-            <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors">
+            <a href="https://wa.me/639671747127" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors">
               <WhatsAppIcon className="w-4 h-4" />
               WhatsApp
             </a>
